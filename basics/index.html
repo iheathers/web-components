@@ -6,9 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components</title>
     <style>
+      /* :root {
+        --color-primary: blue;
+      } */
+
       div {
         border: 1px solid red;
       }
+
+      /* .slotted {
+        background-color: antiquewhite;
+      } */
     </style>
     <script src="./tooltip.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -19,13 +27,13 @@
       <span> (?) </span>
     </template> -->
     <span>
-      <tb-tooltip tooltip-text="Manual Tooltip text">
-        Web Components
+      <tb-tooltip class="purple" tooltip-text="Manual Tooltip text">
+        <span class="slotted"> Web Components</span>
       </tb-tooltip>
       seems good enough for my case
       <br />
-      <tb-tooltip></tb-tooltip>
-      are promising.
     </span>
+    <tb-tooltip></tb-tooltip>
+    are promising.
   </body>
 </html>
