@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Components</title>
+    <style>
+      div {
+        border: 1px solid red;
+      }
+    </style>
+    <script src="./tooltip.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <template id="tooltip-template">
+      <slot>Default slot value</slot>
+      <span> (?) </span>
+    </template> -->
+    <span>
+      <tb-tooltip tooltip-text="Manual Tooltip text">
+        Web Components
+      </tb-tooltip>
+      seems good enough for my case
+      <br />
+      <tb-tooltip></tb-tooltip>
+      are promising.
+    </span>
+  </body>
+</html>
