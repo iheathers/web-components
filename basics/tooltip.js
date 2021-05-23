@@ -6,6 +6,7 @@ class Tooltip extends HTMLElement {
   constructor() {
     super();
     this._tooltipIcon;
+    this.tooltipVisible = false;
     this._tootTipContentContainer;
     this._toolTipText = 'Default text';
     this.attachShadow({ mode: 'open' });
@@ -70,18 +71,30 @@ class Tooltip extends HTMLElement {
     }
   }
 
+  _render() {
+    let tooltipContainer = this.shadowRoot.querySelector('div');
+
+    if (this.tooltipVisible) {
+      tooltipContainer = document.createElement('div');
+      tooltipContainer.textContent = this._toolTipText;
+      this.shadowRoot.appendChild(tooltipContainer);
+    } else {
+      if (tooltipContainer) {
+        this.shadowRoot.removeChild(tooltipContainer);
+      }
+    }
+  }
+
   _showTooltip() {
     // console.log('showTooptip() called');
-
-    this._tootTipContentContainer = document.createElement('div');
-    this._tootTipContentContainer.textContent = this._toolTipText;
-    this.shadowRoot.appendChild(this._tootTipContentContainer);
+    this.tooltipVisible = true;
+    this._render();
   }
 
   _hideTooltip() {
     // console.log('hideTooltip called');
-
-    this.shadowRoot.removeChild(this._tootTipContentContainer);
+    this.tooltipVisible = false;
+    this._render();
   }
 
   disconnectedCallback() {
